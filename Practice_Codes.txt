@@ -1,0 +1,513 @@
+1)Display 1 to 10 in loop
+2)Display Alternate first 10 charachter using loop
+3)Sort ur name by ascending and descending where ascending or decending name will be taken as a parameter
+
+1)
+using System;
+namespace code
+{
+class program
+{
+for(int i=o; i<=10; i++)
+{
+Console.WriteLine(i);
+}
+}
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+2)
+using System;
+
+namespace code
+{
+    public class program
+    {
+
+        public static void Main(string[] args)
+        {
+
+            string a = "abcdefghijklmnopqrst";
+            for (int i = 0; i < a.Length; i = i + 2)
+            {
+
+            Console.WriteLine(a[i]);
+            
+            }
+        }
+      }
+  }
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+3)
+using System;  
+class program 
+{  
+    public static void Main() 
+{
+  string str;
+  char[] arr1;
+  char ch;
+  int i,j,z;
+      Console.Write("\n\nSort a string array in ascending order :\n");
+      Console.Write("--------------------------------------------\n");  
+      Console.Write("Input the string : ");
+      str = Console.ReadLine();	
+      z=str.Length;
+      arr1 = str.ToCharArray(0, z);
+
+   for(i=1;i<z;i++)
+    for(j=0;j<z-i;j++)
+	
+	if(arr1[j]>arr1[j+1])
+	{
+	  ch=arr1[j];
+	  arr1[j] = arr1[j+1];
+	  arr1[j+1]=ch;
+	}
+   Console.Write("After sorting the string appears like : \n");
+    foreach (char c in arr1)
+       { 
+        ch=c;
+         Console.Write("{0} ",ch);
+       }
+       Console.WriteLine("\n");
+   }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4) calculate the length of a string
+
+using System;
+
+
+namespace practice_code2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = "Nikita";
+
+            Console.WriteLine("The Length of the String is: " +s.Length);
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+5) count the number of lines in a string
+
+using System;
+namespace practice_code2
+{
+class program
+{
+   static void Main(string[]args)
+{
+  long l = countstring("My name is Nikita");
+  Console.WriteLine("number of lines in the string: {0}",l);
+Console.ReadLine();
+
+}
+
+static long countstring(string s)
+{
+long count = 1;
+int start = 0;
+while((start=s.IndexOf('\n',start)) != -1)
+{
+count++;
+
+start++;
+}
+return count;
+}
+}
+
+In this program use while loop to count the lines in the string.
+indexof to check the condition of the statement which is not equal
+if the condition is true,then execute the statement and print the number of lines in the string 
+indexof()returns the position of the specified characters in the given string. it returns the firts index at which given element can be found in string
+it returns -1 if it is not found in the index 
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+5) given number is prime or odd num=7
+
+using System;
+namespace practice_code4
+{
+class program
+{
+  int number = 7;
+  int count = 0;
+for (int i=1;i<=number;i++)
+{
+if (number%i==0)
+{
+count++;
+}
+}
+if (count==2)
+{
+
+Console.WriteLine("prime number");
+}
+else{
+Console.WriteLine("not a prime number");
+}
+Console.ReadLine();
+}
+}
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+6) Fibonacci series 
+
+using System;
+namespce practice_code5
+{
+class program
+{
+int a = 0;
+int b =1;
+int c;
+Console.WriteLine(a);
+Console.WriteLine(b);
+for (int i=0;i<10;i++)
+{ 
+c=a+b;
+Console.WriteLine(c);
+a=b;
+b=c;
+}
+Console.ReadLine();
+}
+}
+ 
+Fibonacci series is series that starts from 0 and 1
+next number in the series is the sum of the last two numbers
+
+0+1=1     0,1,1,2,3,5
+1+1=2
+2+1=3
+2+3=5
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+swapping
+
+using System;
+namespace practice_code
+{
+class program
+{
+static void Main(string[]args)
+{
+int a=10;
+int b=20;
+int temp;
+Console.WriteLine("before swapping the value of a={0},b={1}",a,b);
+temp=a;
+a=b;
+b=temp;
+Console.WriteLine("after swapping the value of a={0},b={1}",a,b);
+Console.ReadLine();
+}
+}
+}
+
+swapping means value of a and b change means if value of a=10 & b=20 then 
+after swapping the value of a=20 & b=10
+we take the third variable temp
+
+2nd method without using third variable
+
+class program
+{
+int a =10;
+int b=20;
+Console.WriteLine("before swapping the value of a={0},b={1}",a,b);
+a=a+b;
+b=a-b;
+a=a-b;
+Console.WriteLine("after swapping the value of a={0},b={1}",a,b);
+Console.ReadLine();
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+*Delegates 
+
+ek world wide conference hoti hain jaha pain country ke representatives aate hain
+means it is a third party hoti hain jo 2 country ke bich main communication karvati hain
+delegate ke obj ke andar kisi bhi method ka reference rakhte hain
+method ko hum directly call nahi karenge delegate ke through hum call karenge
+
+delegate are type safe function pointer
+they are use to point single or multiple function and their main requirement is during event handling
+
+delegate is a type which holds the method reference in an object
+delegate is a rference type
+delegate has no implementation means it has no body means{}
+delegate signature should be same as method signature referencing by a delegate
+multiple methods can be called on a single unit
+delegates are used to pass the methods as arguments to other methods
+{0} is a zero based number it refers to the index of the given variable
+*events - 
+
+event is a notification mechanism depends on a delegates
+events depends on a delegates , it improves the security
+they cannot return a value they are void
+
+using System;
+namespace ConsoleApplication
+{
+public delegate void Calculation(int a,int b);
+ class program
+{
+public static void Addition(int a, int b);
+{
+int result =  a+b;
+Console.WriteLine("Addition of the result: {0}",result);
+}
+static void Main(sring[]args)
+{
+Calculation obj = new Calculation(program.Addition);
+obj(20,10);
+Console.ReadLine();
+}
+}
+}
+
+
+----------------------------------------------------------------------------------------------------------------
+
+**3 types-
+
+*1)singlecast delegate - only one method can be use, only one method can pass
+
+using System;
+namespace ConsoleApplication
+{
+public delegate void calculation(int x, int y)
+class program
+{
+public static void Substraction(int x, int y)
+{
+int result = x - y;
+Console.WriteLine("the result of the substraction is : {0}",result);
+}
+static void Main(string [] args)
+{
+calculation obj = new calculation(substraction);
+obj(189,70);
+Console.ReadLine();
+}
+}
+}
+----------------------------------------------------------------------------------------------------------------------------
+
+*2)multiple delegate - jinki return type void ho aur jinki parenthesis() me kuch na ho
+
+using System;
+
+namespace multiple_delegates
+{
+    public delegate void Calculation(int a, int b);
+    public delegate void Show_delegate();
+    public delegate void Calculate(int num);
+    class program
+    {
+        public static void Square(int num)
+        {
+            int square = num*num;
+            Console.WriteLine(" Square of {0} is {1}", num , square);
+        }
+        public static void Cube(int num)
+        {
+            int cube = num*num*num;
+            Console.WriteLine("Cube of {0} is {1}", num, cube);
+        }
+        public static void Show()
+        {
+
+            Console.WriteLine("This is a show method !!");
+
+        }
+        public static void Addition(int a, int b)
+        {
+            int result = a + b;
+            Console.WriteLine("Addition result is {0}", result);
+        }
+        public static void Substraction(int a, int b)
+        {
+            int result = a - b;
+            Console.WriteLine("Substraction result is {0}", result);
+        }
+        public static void Multiplication(int a, int b)
+        {
+            int result = a * b;
+            Console.WriteLine("Multiplication result is {0}", result);
+        }
+        static void Main(string[] args)
+        {
+
+            Calculate obj = new Calculate(Square);
+            obj.Invoke(23);
+
+            obj = Cube;
+            obj.Invoke(56);
+
+            //Show_delegate obj = new Show_delegate(Show);
+            //obj.Invoke();
+
+
+            //Calculation obj = new Calculation(Addition);
+            //obj(56,89);
+
+            Console.ReadLine();
+    }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------- 
+
+3)multicaste delegate - we use += and -= operators to implement multicaste delegates
+
+using System;
+
+namespace ConsoleApp
+{
+    public delegate void Calculation(int a , int b);
+    
+    class program
+    {
+        public static void Addition(int a, int b)
+        {
+            int result = a + b;
+            Console.WriteLine("addition of the result is :{0}", result);
+        }
+        static void Main(string[] args)
+        {
+            Calculation obj = new Calculation(Addition);
+            //obj.Invoke(20, 10);
+            obj +=Substraction;
+            obj +=multiplication;
+            obj(50,60);
+
+            Console.ReadLine();
+        }
+      }
+    }
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+* arrange the name in ascending order
+
+using System;
+namespace name ascending
+{
+class program
+{
+string s ,char c;
+Console.WriteLine("Enter the name");
+c = Console.ReadLine();
+char[]arr = s.ToCharArray();
+for(int i=0;i<arr.length;i++)
+{
+Console.WriteLine("arr[i]");
+}
+for(j=0;j<arr.length-1;j++)
+{
+for(i=0;i<arr.length-1;i++)
+{
+if(arr[i]>arr[i+1])
+{
+c = arr[i+1];
+arr[i+1] = arr[i];
+arr[i]=c;
+{
+Console.WriteLine("name in ascending order is: ");
+foreach(char ch in arr)
+{
+Console.WriteLine(ch);
+}
+Console.ReadLine();
+}
+}
+}
+
+---------------------------------------------------------------------------------------------------------------
+* reverse string sort array
+
+class program
+{
+string str , revstr = " ";
+s = str.Length;
+Console.WriteLine("enter a string: ");
+str = Console.ReadLine();
+for(int i=s-1;i>=0;i--)
+{
+revstr = Revstr + str[i];
+}
+Console.WriteLine("Reverse string : {0}",revstr);
+Console.ReadLine();
+}
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+
+* method overloading 
+it is compile time polymorphism
+same name but different parameters and different sequence of parameter
+
+class program
+{
+void sum(int a,int b)
+{
+Console.WriteLine(a+b);
+}
+void sum(float x, float y)
+{
+Console.WriteLine(x+y);
+}
+static void Main(string[]args)
+{
+program obj = new program();
+obj.sum(45,89);
+Console.ReadLine();
+}
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+* method overridng
+it is achieved by run time polymorphism
+same name same sequence of parameter but different class
+
+class Animal
+{
+public vooid Eat()
+{
+Console.WriteLine("Animal is eating");
+}
+}
+class Dog:Animal
+{
+public static void Main(string[]args)
+{
+Dog tommy = new Dog();
+tommy.Eat();
+CConsole.ReadLine();
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
